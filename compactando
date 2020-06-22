@@ -1,0 +1,57 @@
+import os
+import zipfile
+
+fantasy_zip = zipfile.ZipFile('C:\\Users\\Pedro Victor\\Downloads\\onepiece', 'w')
+
+caminho = [
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_931_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_932_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_933_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_934_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_935_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_936_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_937_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_938_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_939_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_940_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_941_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_942_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_943_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_944_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_945_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_946_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_947_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_948_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_949_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\One-Piece_-_950_-_scansPROJECT']
+
+caminhoss = [
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_931_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_932_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_933_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_935_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_936_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_937_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_938_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_939_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_940_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_941_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_942_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_943_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_944_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_945_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_946_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_947_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_948_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_949_-_scansPROJECT',
+    'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado\\One-Piece_-_950_-_scansPROJECT']
+
+for folder, subfolders, files in os.walk('C:\\Users\\Pedro Victor\\Downloads\\onepiece'):
+    for file in files:
+        if file.endswith('.png'):
+            fantasy_zip.write(os.path.join(folder, file),
+                              os.path.relpath(os.path.join(folder, file),
+                                              'C:\\Users\\Pedro Victor\\Downloads\\onepiece\\compactado'),
+                              compress_type=zipfile.ZIP_DEFLATED)
+
+fantasy_zip.close()
